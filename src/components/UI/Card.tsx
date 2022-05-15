@@ -1,14 +1,14 @@
 import React from "react";
-// import './Card.module.css';
-// import * as css from "./Card.module.css";
+import './Card.css';
 
 type Cards = {
-    children: React.ReactNode; // 👈️ type children
+    children: React.ReactNode;// 👈️ type children
+    styles :string;
 };
 
 
-const Card: React.FC<Cards> = function ({ children }) {
-    return <div className= "cardo">{children}</div>;
+const Card: React.FC<Cards> = function ({ children, styles }) {
+    return <div className= {`${styles} ${"cardo"}`}>{children}</div>;
 };
 
 

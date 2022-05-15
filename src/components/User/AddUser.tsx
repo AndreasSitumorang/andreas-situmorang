@@ -1,5 +1,6 @@
 import React from "react";
 import Cards from "../UI/Card";
+import './AddUser.css';
 
 // export interface IAddUserProps {
 //     name: string;
@@ -14,8 +15,8 @@ const AddUser: React.FC = function ()  {
     }
 
     return( 
-        <Cards>
-            <form className="addUser" onSubmit={(e) => handleSubmit}>
+        <Cards styles="input">
+            <form onSubmit={(e) => handleSubmit}>
                 <label htmlFor="Username">Name</label>
                 <input type="text" name="name" placeholder="Name"/>
                 <label htmlFor="Username">Username</label>
