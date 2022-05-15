@@ -1,5 +1,6 @@
 import React from "react";
 import Cards from "../UI/Card";
+import Button from "../UI/Button";
 import './AddUser.css';
 
 // export interface IAddUserProps {
@@ -21,7 +22,7 @@ const AddUser: React.FC = function ()  {
                 <input type="text" name="name" placeholder="Name"/>
                 <label htmlFor="Username">Username</label>
                 <input type="text" name="username" placeholder="Username"/>
-                <button type="submit">Add New User</button>
+                <Button styles="button" type="submit" onClick={()=> alert()}> Add New User</Button>
             </form>
         </Cards>
     );
