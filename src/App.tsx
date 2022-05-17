@@ -25,7 +25,7 @@ const [UsersListing, setUsersList] = useState<IAddUserListPropsExtendArray[]>([]
 
 const App: React.FC = function(setName, setUsername) {
   return <div> <AddUser/>
-  <UsersList />
+  <UsersList {...UsersListing}/>
   </div>;
 }; 
 
