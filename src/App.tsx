@@ -23,6 +23,16 @@ interface IAddUserListPropsExtendArray{
 const [UsersListing, setUsersList] = useState<IAddUserListPropsExtendArray[]>([]);
 
 
+const AddUserHandler = (name: string, username: string) => {
+  const newUser: IAddUserListPropsExtendArray = {
+    names: name,
+    usernames: username
+  };
+  setUsersList([...UsersListing, newUser]);
+};
+
+
+
 const App: React.FC = function(setName, setUsername) {
   return <div> <AddUser/>
   <UsersList {...UsersListing}/>
