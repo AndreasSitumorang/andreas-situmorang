@@ -7,20 +7,23 @@ interface IAddUserListProps {
     usernames: string;
     children?: React.ReactNode;
 }
-interface IAddUserListPropsExtendArray{
+export interface IAddUserListPropsExtendArray{
     names: string;
     usernames: string;
     children?: React.ReactNode;
-    [key: string]: any;
+    key: string;
 }
 
-const UsersListComponent : React.FC<IAddUserListPropsExtendArray[]> = function (children, any) {
+interface Iusers {
+    users : IAddUserListPropsExtendArray[];
+}
+const UsersListComponent : React.FC<Iusers> = function (children, users) {
 
-    var newArr = children.map(function(names){
+    var newArr = children.users.map(function(names){
         return names.names , names.usernames;
     })
     
-    var newArrs = children.map(function(usernames){
+    var newArrs = children.users.map(function(usernames){
         return usernames.usernames;
     })
 

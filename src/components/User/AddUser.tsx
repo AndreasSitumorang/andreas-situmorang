@@ -11,9 +11,11 @@ import './AddUser.css';
 
 interface IProps_AddUsers {
     onClick: (event: React.SyntheticEvent) => void;
+    users: any;
+    children: React.ReactNode;
   }
 
-const AddUser: React.FC<IProps_AddUsers> = function ({onClick})  {   //<IAddUserProps> = function ()  {
+const AddUser: React.FC<IProps_AddUsers> = function ({onClick, children})  {   //<IAddUserProps> = function ()  {
 
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
@@ -26,7 +28,9 @@ const AddUser: React.FC<IProps_AddUsers> = function ({onClick})  {   //<IAddUser
         event.preventDefault();
 
         console.log(name, username);
-
+        children.onAddUser(enteredUsername, enteredAge);
+        setName('');
+        setUsername('');
     }
 
     const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import AddUser from "./components/User/AddUser";
-import UsersList from "./components/User/UsersList";
+import UsersList, { IAddUserListPropsExtendArray } from "./components/User/UsersList";
 
 interface IAppProps {
   name: string;
@@ -13,12 +13,12 @@ interface IAppProps {
 //         username: "domi"
 //     },
 //   ];
-interface IAddUserListPropsExtendArray {
-  names: string;
-  usernames: string;
-  children?: React.ReactNode;
-  [key: string]: any;
-}
+// interface IAddUserListPropsExtendArray {
+//   names: string;
+//   usernames: string;
+//   children?: React.ReactNode;
+//   [key: string]: any;
+// }
 
 const App: React.FC = function () {
   const [UsersListing, setUsersList] = useState<IAddUserListPropsExtendArray[]>(
@@ -29,6 +29,7 @@ const App: React.FC = function () {
     const newUser: IAddUserListPropsExtendArray = {
       names: name,
       usernames: username,
+      key : Math.random().toString() 
     };
     setUsersList([...UsersListing, newUser]);
   };
@@ -36,8 +37,8 @@ const App: React.FC = function () {
   return (
     <div>
       {" "}
-      <AddUser onClick={AddUserHandler} />
-      <UsersList {...UsersListing} />
+      <AddUser onAddUser={AddUserHandler} />
+      <UsersList users={UsersListing} />
     </div>
   );
 };
