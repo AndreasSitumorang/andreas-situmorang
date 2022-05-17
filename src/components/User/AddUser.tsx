@@ -9,12 +9,16 @@ import './AddUser.css';
 // }
 
 
-const AddUser: React.FC = function ()  {   //<IAddUserProps> = function ()  {
+interface IProps_AddUsers {
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  }
+
+const AddUser: React.FC<IProps_AddUsers> = function (onClick)  {   //<IAddUserProps> = function ()  {
 
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
 
-    const handleSubmit = ( event : React.SyntheticEvent ) => {
+    const AddUserHandler = ( event : React.SyntheticEvent ) => {
         if (name === "" || username === "") {
         return;
         }
@@ -35,7 +39,7 @@ const AddUser: React.FC = function ()  {   //<IAddUserProps> = function ()  {
 
     return( 
         <Cards styles="input">
-            <form  onSubmit={(e) => handleSubmit}>
+            <form  onSubmit={(e) => AddUserHandler}>
                 <label htmlFor="Username">Name</label>
                 <input id="name" type="text" name="name" placeholder="Name" onChange={(e) => nameChangeHandler}/>
                 <label htmlFor="Username">Username</label>

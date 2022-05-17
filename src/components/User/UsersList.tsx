@@ -14,7 +14,7 @@ interface IAddUserListPropsExtendArray{
     [key: string]: any;
 }
 
-const AddUser: React.FC<IAddUserListPropsExtendArray[]> = function (children, any) {
+const UsersListComponent : React.FC<IAddUserListPropsExtendArray[]> = function (children, any) {
 
     var newArr = children.map(function(names){
         return names.names , names.usernames;
@@ -35,4 +35,4 @@ const AddUser: React.FC<IAddUserListPropsExtendArray[]> = function (children, an
   );
 };
 
-export default AddUser;
+export default UsersListComponent;
