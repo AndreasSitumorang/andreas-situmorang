@@ -36,7 +36,7 @@ const App: React.FC = function () {
   return (
     <div>
       {" "}
-      <AddUser event={AddUserHandler} />
+      <AddUser onClick={AddUserHandler} />
       <UsersList {...UsersListing} />
     </div>
   );

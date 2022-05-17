@@ -10,10 +10,10 @@ import './AddUser.css';
 
 
 interface IProps_AddUsers {
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    onClick: (event: React.SyntheticEvent) => void;
   }
 
-const AddUser: React.FC<IProps_AddUsers> = function (onClick)  {   //<IAddUserProps> = function ()  {
+const AddUser: React.FC<IProps_AddUsers> = function ({onClick})  {   //<IAddUserProps> = function ()  {
 
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
