@@ -10,12 +10,10 @@ import './AddUser.css';
 
 
 interface IProps_AddUsers {
-    onClick: (event: React.SyntheticEvent) => void;
-    users: any;
-    children: React.ReactNode;
+    onAddUser: (name: string, username: string) => void;
   }
 
-const AddUser: React.FC<IProps_AddUsers> = function ({onClick, children})  {   //<IAddUserProps> = function ()  {
+const AddUser: React.FC<IProps_AddUsers> = function ({onAddUser})  {   //<IAddUserProps> = function ()  {
 
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
@@ -24,11 +22,9 @@ const AddUser: React.FC<IProps_AddUsers> = function ({onClick, children})  {   /
         if (name === "" || username === "") {
         return;
         }
-        
         event.preventDefault();
-
         console.log(name, username);
-        children.onAddUser(enteredUsername, enteredAge);
+        onAddUser(name, username);
         setName('');
         setUsername('');
     }
