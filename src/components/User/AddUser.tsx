@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Cards from "../UI/Card";
 import Button from "../UI/Button";
 import './AddUser.css';
@@ -9,20 +9,38 @@ import './AddUser.css';
 // }
 
 
-const AddUser: React.FC = function ()  {
+const AddUser: React.FC = function ()  {   //<IAddUserProps> = function ()  {
 
-    const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
-        e.preventDefault();
+    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
+
+    const handleSubmit = ( event : React.SyntheticEvent ) => {
+        if (name === "" || username === "") {
+        return;
+        }
+        
+        event.preventDefault();
+
+        console.log(name, username);
+
     }
+
+    const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setName(e.target.value);
+    }
+    const userNameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUsername(e.target.value);
+    }
+ 
 
     return( 
         <Cards styles="input">
-            <form onSubmit={(e) => handleSubmit}>
+            <form  onSubmit={(e) => handleSubmit}>
                 <label htmlFor="Username">Name</label>
-                <input type="text" name="name" placeholder="Name"/>
+                <input id="name" type="text" name="name" placeholder="Name" onChange={(e) => nameChangeHandler}/>
                 <label htmlFor="Username">Username</label>
-                <input type="text" name="username" placeholder="Username"/>
-                <Button styles="button" type="submit" onClick={()=> alert()}> Add New User</Button>
+                <input id="username" type="text" name="username" placeholder="Username"  onChange={(e) => userNameChangeHandler}/>
+                <Button styles="button" type="submit" onClick={()=> postMessage('domi doni')}>Add User</Button>
             </form>
         </Cards>
     );
