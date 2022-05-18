@@ -19,19 +19,11 @@ interface Iusers {
 }
 const UsersListComponent : React.FC<Iusers> = function (children, users) {
 
-    var newArr = children.users.map(function(names){
-        return names.names , names.usernames;
-    })
-    
-    var newArrs = children.users.map(function(usernames){
-        return usernames.usernames;
-    })
-
   return (
     <Card styles="users">
     <ul>
-        {newArr.map((name, index, username) => {
-            return <li key={index}>{name}{username}</li>
+        {children.users.map((obj) => {
+            return <li key={obj.key}>{obj.names}{obj.usernames}</li>
         })}
     </ul>
     </Card>

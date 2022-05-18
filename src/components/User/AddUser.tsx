@@ -39,11 +39,11 @@ const AddUser: React.FC<IProps_AddUsers> = function ({onAddUser})  {   //<IAddUs
 
     return( 
         <Cards styles="input">
-            <form  onSubmit={(e) => AddUserHandler}>
+            <form  onSubmit={(e) => AddUserHandler (e)}>
                 <label htmlFor="Username">Name</label>
-                <input id="name" type="text" name="name" placeholder="Name" onChange={(e) => nameChangeHandler}/>
+                <input id="name" type="text" name="name" placeholder="Name" onChange={(e) => nameChangeHandler(e)} value = {name}/>
                 <label htmlFor="Username">Username</label>
-                <input id="username" type="text" name="username" placeholder="Username"  onChange={(e) => userNameChangeHandler}/>
+                <input id="username" type="text" name="username" placeholder="Username"  onChange={(e) => userNameChangeHandler (e)} value = {username}/>
                 <Button styles="button" type="submit" onClick={()=> postMessage('domi doni')}>Add User</Button>
             </form>
         </Cards>
