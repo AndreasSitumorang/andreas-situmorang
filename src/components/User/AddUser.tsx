@@ -3,18 +3,11 @@ import Cards from "../UI/Card";
 import Button from "../UI/Button";
 import './AddUser.css';
 
-// export interface IAddUserProps {
-//     name: string;
-//     username: string;
-// }
-
-
 interface IProps_AddUsers {
     onAddUser: (name: string, username: string) => void;
   }
 
-const AddUser: React.FC<IProps_AddUsers> = function ({onAddUser})  {   //<IAddUserProps> = function ()  {
-
+const AddUser = ({onAddUser}: IProps_AddUsers) => {   
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
 
@@ -35,7 +28,6 @@ const AddUser: React.FC<IProps_AddUsers> = function ({onAddUser})  {   //<IAddUs
     const userNameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUsername(e.target.value);
     }
- 
 
     return( 
         <Cards styles="input">
@@ -44,7 +36,7 @@ const AddUser: React.FC<IProps_AddUsers> = function ({onAddUser})  {   //<IAddUs
                 <input id="name" type="text" name="name" placeholder="Name" onChange={(e) => nameChangeHandler(e)} value = {name}/>
                 <label htmlFor="Username">Username</label>
                 <input id="username" type="text" name="username" placeholder="Username"  onChange={(e) => userNameChangeHandler (e)} value = {username}/>
-                <Button styles="button" type="submit" onClick={()=> postMessage('domi doni')}>Add User</Button>
+                <Button styles="button" type="submit" onClick={() => {}}>Add User</Button> 
             </form>
         </Cards>
     );

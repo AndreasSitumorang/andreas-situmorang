@@ -23,7 +23,7 @@ const UsersListComponent = ({ children, users }: Iusers) => {
             <div>
               <Card styles="users li">
                 <li key={obj.key}> Name : {obj.names} </li>
-                <li key={obj.key}> UserName: {obj.usernames} </li>
+                <li key={obj.key + 1}> UserName: {obj.usernames} </li>
               </Card>
             </div>
           );
