@@ -1,31 +1,34 @@
 import React from "react";
-import './UsersList.css';
+import "./UsersList.css";
 import Card from "../UI/Card";
 
-interface IAddUserListProps {
-    names: string;
-    usernames: string;
-    children?: React.ReactNode;
-}
-export interface IAddUserListPropsExtendArray{
-    names: string;
-    usernames: string;
-    children?: React.ReactNode;
-    key: string;
+export interface IAddUserListPropsExtendArray {
+  names: string;
+  usernames: string;
+  key: string;
 }
 
 interface Iusers {
-    users : IAddUserListPropsExtendArray[];
+  users: IAddUserListPropsExtendArray[];
+  children?: React.ReactNode;
 }
-const UsersListComponent : React.FC<Iusers> = function (children, users) {
+const UsersListComponent = ({ children, users }: Iusers) => {
+  ///React.FC<Iusers> = function (children) {
 
   return (
     <Card styles="users">
-    <ul>
-        {children.users.map((obj) => {
-            return <li key={obj.key}>{obj.names}{obj.usernames}</li>
+      <ul>
+        {users.map((obj) => {
+          return (
+            <div>
+              <Card styles="users li">
+                <li key={obj.key}> Name : {obj.names} </li>
+                <li key={obj.key}> UserName: {obj.usernames} </li>
+              </Card>
+            </div>
+          );
         })}
-    </ul>
+      </ul>
     </Card>
   );
 };

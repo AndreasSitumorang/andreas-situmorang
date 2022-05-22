@@ -3,22 +3,6 @@ import "./App.css";
 import AddUser from "./components/User/AddUser";
 import UsersList, { IAddUserListPropsExtendArray } from "./components/User/UsersList";
 
-interface IAppProps {
-  name: string;
-  username: string;
-}
-// const listUser : IAppProps[] = [
-//     {
-//         name: "domi",
-//         username: "domi"
-//     },
-//   ];
-// interface IAddUserListPropsExtendArray {
-//   names: string;
-//   usernames: string;
-//   children?: React.ReactNode;
-//   [key: string]: any;
-// }
 
 const App: React.FC = function () {
   const [UsersListing, setUsersList] = useState<IAddUserListPropsExtendArray[]>(
