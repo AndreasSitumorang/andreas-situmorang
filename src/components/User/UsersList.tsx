@@ -13,7 +13,6 @@ interface Iusers {
   children?: React.ReactNode;
 }
 const UsersListComponent = ({ children, users }: Iusers) => {
-  ///React.FC<Iusers> = function (children) {
 
   return (
     <Card styles="users">

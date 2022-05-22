@@ -2,14 +2,14 @@ import React from "react";
 
 import "./Button.css";
 
-interface ButtonProps {
+interface IButtonProps {
   children: React.ReactNode;
   styles: string;
   type?: string;
   onClick: () => void;
 }
 
-const Button: React.FC<ButtonProps> = function ({ children, styles, onClick, type }) {
+const Button = ({ children, styles, onClick, type }:IButtonProps) =>{
   return (
     <button
       className={styles}

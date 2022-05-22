@@ -1,15 +1,15 @@
 import React from "react";
 import './Card.css';
 
-type Cards = {
+interface ICard {
     children: React.ReactNode;// 👈️ type children
     styles :string;
-};
+}
 
 
-const Card: React.FC<Cards> = function ({ children, styles }) {
+const Cards = ({ children, styles }: ICard)  =>{
     return <div className= {`${styles} ${"cardo"}`}>{children}</div>;
 };
 
 
-export default Card;
+export default Cards;

@@ -4,7 +4,7 @@ import AddUser from "./components/User/AddUser";
 import UsersList, { IAddUserListPropsExtendArray } from "./components/User/UsersList";
 
 
-const App: React.FC = function () {
+const App = () => {
   const [UsersListing, setUsersList] = useState<IAddUserListPropsExtendArray[]>(
     []
   );
