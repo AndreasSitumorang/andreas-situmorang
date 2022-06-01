@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Cards from "../UI/Card";
 import Button from "../UI/Button";
 import ErrorModals from "../UI/ErrorModal";
@@ -9,17 +9,25 @@ interface IProps_AddUsers {
 }
 
 const AddUser = ({ onAddUser }: IProps_AddUsers) => {
+  const nameInputRef = useRef<HTMLInputElement>();
+  const usernameInputRef = useRef<HTMLInputElement | null>(null)
+
+
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
+
+
   const [error, setError] = useState(false);
 
+console.log(nameInputRef);
+console.log(usernameInputRef);
   const AddUserHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
     if (name === "" || username === "") {
         setError(true);
         return;
     }
-    console.log(name, username);
+    // console.log(name, username);
     onAddUser(name, username);
     setName("");
     setUsername("");
@@ -49,6 +57,7 @@ const AddUser = ({ onAddUser }: IProps_AddUsers) => {
             placeholder="Name"
             onChange={(e) => nameChangeHandler(e)}
             value={name}
+            // ref={nameInputRef}
           />
           <label htmlFor="Username">Username</label>
           <input
@@ -58,6 +67,7 @@ const AddUser = ({ onAddUser }: IProps_AddUsers) => {
             placeholder="Username"
             onChange={(e) => userNameChangeHandler(e)}
             value={username}
+            // ref = {usernameInputRef.current}
           />
           <Button styles="button" type="submit" onClick={() => {}}>
             Add User
