@@ -9,8 +9,8 @@ interface IProps_AddUsers {
 }
 
 const AddUser = ({ onAddUser }: IProps_AddUsers) => {
-  const nameInputRef = useRef<HTMLInputElement>();
-  const usernameInputRef = useRef<HTMLInputElement | null>(null)
+  const nameInputRef = useRef<HTMLInputElement>(null);   //<HTMLInputElement>();
+  const usernameInputRef = useRef<HTMLInputElement | null>(null);     //<HTMLInputElement | null>(null)
 
 
   const [name, setName] = useState("");
@@ -19,19 +19,25 @@ const AddUser = ({ onAddUser }: IProps_AddUsers) => {
 
   const [error, setError] = useState(false);
 
-console.log(nameInputRef);
-console.log(usernameInputRef);
   const AddUserHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    if (name === "" || username === "") {
-        setError(true);
-        return;
-    }
+    // if (name === "" || username === "") {
+    //     setError(true);
+    //     return;
+    // }
+    if (nameInputRef.current?.value === "" || usernameInputRef.current?.value === "") {
+      setError(true);
+      return;
+  }
     // console.log(name, username);
-    onAddUser(name, username);
-    setName("");
-    setUsername("");
+    // onAddUser(name, username);
+    onAddUser(usernameInputRef.current?.value.toString(), nameInputRef.current?.value.toString());
+    // setName("");
+    // setUsername("");
   };
+
+console.log(nameInputRef.current?.value.toString());
+console.log(usernameInputRef);
 
   const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -56,8 +62,8 @@ console.log(usernameInputRef);
             name="name"
             placeholder="Name"
             onChange={(e) => nameChangeHandler(e)}
-            value={name}
-            // ref={nameInputRef}
+            value= {nameInputRef.current?.value}  //{name}
+            ref={nameInputRef}
           />
           <label htmlFor="Username">Username</label>
           <input
@@ -66,8 +72,8 @@ console.log(usernameInputRef);
             name="username"
             placeholder="Username"
             onChange={(e) => userNameChangeHandler(e)}
-            value={username}
-            // ref = {usernameInputRef.current}
+            value= {usernameInputRef.current?.value}  //{username}
+            ref={usernameInputRef}
           />
           <Button styles="button" type="submit" onClick={() => {}}>
             Add User
