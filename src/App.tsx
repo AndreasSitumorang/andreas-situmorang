@@ -41,7 +41,7 @@ const App = () => {
       <AddUser onAddUser={AddUserHandler} />
       <UsersList users={UsersListing} /> */}
       <div>
-        <MainHeader onLogout={logoutHandler} />
+        <MainHeader isAuthenticate= {isLoggedIn} onLogout={logoutHandler} />
       </div>
 
       <Cards styles="App-header">

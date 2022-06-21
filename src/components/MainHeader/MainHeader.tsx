@@ -4,23 +4,21 @@ import "./MainHeader.css";
 
 interface IMainHeaderProps {
     // children: React.ReactNode;
-    onLogout: (
-        isAuthenticated: boolean,
-      ) => void;
-      isAuthenticated?: boolean;
+    onLogout: ( ) => void;
+    isAuthenticate: boolean;
 }
 
-const MainHeader = ({onLogout}: IMainHeaderProps) => {
+const MainHeader = ({onLogout, isAuthenticate}: IMainHeaderProps) => {
     // const [isAuthenticated, setisAuthenticated] = useState(true);
     // const [fromIsValid, setFromIsValid] = useState(false);
     // const [onLogout, setOnLogout] = useState(false);
-    const logoutHandler = () => {
-        onLogout(true);
-    }
+    // const logoutHandler = () => {
+    //     onLogout(false);
+    // }
     return (
         <header className="main-header">
             <h1>A Typical Page</h1>
-            <Navigation  onlogout={logoutHandler} />
+            <Navigation isLoggedIn = {isAuthenticate}  onlogout={onLogout} />
         </header>
     );
 }

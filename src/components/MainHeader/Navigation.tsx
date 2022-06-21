@@ -2,29 +2,31 @@ import React from "react";
 import "./Navigation.css";
 
 interface INavigationProps {
-  isAuthenticated?: boolean;
-  onlogout?: () => void;
-  onLogout?: boolean;
+  isLoggedIn: boolean;
+  onlogout: () => void;
 }
 
-const Navigation = ({ isAuthenticated, onlogout }: INavigationProps) => {
+const Navigation = ({ isLoggedIn, onlogout }: INavigationProps) => {
   return (
     <nav className="nav button">
       <ul className="nav-ul">
-        {isAuthenticated && (
+        {isLoggedIn && (
           <li className="nav-li">
-            <a ref={"/"}> Users</a>
+            <a> Users</a>
           </li>
         )}
-        {isAuthenticated && (
-            <li className="nav-li">
-                <a ref={"/"}> Admin</a>
-            </li>
+        {isLoggedIn && (
+          <li className="nav-li">
+            <a> Users</a>
+          </li>
         )}
-        {isAuthenticated && (
-            <li className="nav-li">
-                <button onClick={onlogout}>Logout</button>
-            </li>)}
+        {isLoggedIn && (
+          <li>
+            <button className="nav-button " onClick={onlogout}>
+              Logout
+            </button>
+          </li>
+        )}
       </ul>
     </nav>
   );
