@@ -1,6 +1,6 @@
 import React from "react";
 import "./UsersList.css";
-import Card from "../UI/Card";
+import Card from "../UI/Card/Card";
 
 export interface IAddUserListPropsExtendArray {
   names: string;

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
-import Cards from "../UI/Card";
-import Button from "../UI/Button";
-import ErrorModals from "../UI/ErrorModal";
+import Cards from "../UI/Card/Card";
+import Button from "../UI/Button/Button";
+import ErrorModals from "../UI/Modal/ErrorModal";
 import "./AddUser.css";
 
 interface IProps_AddUsers {
