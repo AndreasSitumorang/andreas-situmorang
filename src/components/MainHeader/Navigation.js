@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import contextAuth from '../../Context/auth-contrext';
 import classes from './Navigation.module.css';
 
 const Navigation = (props) => {
-  return (
-    <contextAuth.Consumer>
-      { (contexts) => {
+  const contexts = useContext(contextAuth);
+  //return (
+    //<contextAuth.Consumer>
+     // { (contexts) => {
         return(
           <nav className={classes.nav}>
             <ul>
@@ -21,15 +22,15 @@ const Navigation = (props) => {
               )}
               {contexts.isLoggedIn && (
                 <li>
-                  <button onClick={props.onLogout}>Logout</button>
+                  <button onClick={contexts.onLogout}>Logout</button>
                 </li>
               )}
             </ul>
           </nav>
         );            
-      }}
-    </contextAuth.Consumer>
-  );
+//      }}
+    //</contextAuth.Consumer>
+//  );
 };
 
 export default Navigation;
