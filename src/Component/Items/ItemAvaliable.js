@@ -30,8 +30,16 @@ const DUMMY_MEALS = [
   },
 ];
 const itemAvaliable = () => {
-  const Itemlisting = DUMMY_MEALS.map((items) => <ListingItem id = {items.id} name ={items.name} description ={items.description}  price ={items.price}/>);
-
+  const Itemlisting = DUMMY_MEALS.map((items) => (
+    <ListingItem
+      key={items.id + items.name}
+      id={items.id}
+      name={items.name}
+      description={items.description}
+      price={items.price}
+    />
+  ) 
+  );
   return (
     <section className={Style.meals}>
       <Card>
