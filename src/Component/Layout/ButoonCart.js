@@ -4,7 +4,7 @@ import Styles from "./ButoonCart.module.css";
 
 const ButtonCart = (props) => {
   return (
-    <button className={Styles.button}>
+    <button className={Styles.button} onClick = {props.onPressCartButton}>
       <span className={Styles.icon}>
         <CartIcon />
       </span>

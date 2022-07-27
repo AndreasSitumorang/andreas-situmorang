@@ -8,7 +8,7 @@ const Header = (props) => {
     <Fragment>
       <header className={Styles.header}>
         <h1> React Meals</h1>
-        <ButtonCart/>
+        <ButtonCart onPressCartButton = {props.onPressCart}/>
       </header>
       <div className={Styles['main-image']}>
         <img src={Backgound} alt='a table food'/>
