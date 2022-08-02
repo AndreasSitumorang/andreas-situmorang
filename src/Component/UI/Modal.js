@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import ReactDOM from 'react-dom';
 
 const BackDrop = (props) => {
-  return <div className={Styles.backdrop} onClick = {props.onClose}/>;
+  return <div className={Styles.backdrop} role = {props.onClose}/>;
 };
 
 const OverLay = (props) => {

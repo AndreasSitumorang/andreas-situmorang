@@ -1,29 +1,29 @@
-import React, {Fragment, useState} from "react";
+import React, { useState } from "react";
 import Header from "./Component/Layout/Header";
 import ItemList from "./Component/Items/ItemList";
 import Cart from "./Component/Cart/Cart";
+import ItemProvider from "./DataStore/ItemContextProvider";
 // import Backgound from "./Component/Layout/meals.jpg";
 // import Styles from "./Component/Layout/Header.module.css";
 function App() {
-
   const [isShowUp, setisShowUp] = useState(false);
 
-  const isShowUpHandler = () =>{
+  const isShowUpHandler = () => {
     setisShowUp(true);
-  }
-  
-  const isCloseUpHanlder = () =>{
+  };
+
+  const isCloseUpHanlder = () => {
     setisShowUp(false);
   };
 
   return (
-    <Fragment>
-      {isShowUp && <Cart onClose={isCloseUpHanlder}/>}
-      <Header onPressCart = {isShowUpHandler} />
+    <ItemProvider>
+      {isShowUp && <Cart onClose={isCloseUpHanlder} />}
+      <Header onPressCart={isShowUpHandler} />
       <main>
-      <ItemList/>
+        <ItemList />
       </main>
-    </Fragment>
+    </ItemProvider>
   );
 }
 
