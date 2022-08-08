@@ -13,7 +13,7 @@ const Cart = (props) => {
     itemCtx.RemoveItem(id);
   };
   const onAddHandler = (items) => {
-    itemCtx.AddItem(items)   //{...items, amount :1})
+    itemCtx.AddItem({...items, amount :1})
   };
   
   const cartItems = (
